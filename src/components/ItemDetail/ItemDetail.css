@@ -1,0 +1,21 @@
+.CardItem {
+  text-align: center;
+}
+
+.ItemImg {
+  max-height: 320px;
+}
+
+.ItemHeader,
+.Info {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: normal;
+  color: white;
+}
+.ItemFooter {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
