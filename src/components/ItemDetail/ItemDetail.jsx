@@ -1,6 +1,5 @@
-import './ItemDetail.css'
+import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
-
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   return (
@@ -20,7 +19,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
         <ItemCount
           initial={1}
           stock={stock}
-          onAdd={(quantity) => console.log('Items added ',quantity)}
+          onAdd={(quantity) => console.log("Items added ", quantity)}
         />
       </footer>
     </article>
