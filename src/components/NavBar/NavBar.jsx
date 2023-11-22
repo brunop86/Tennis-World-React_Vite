@@ -24,7 +24,10 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-      <CartWidget />
+      <button className="btn btn-primary px-4 position-relative" type="button">
+        <i className="bi bi-cart-fill"></i>
+        <CartWidget />
+      </button>
     </nav>
   );
 };

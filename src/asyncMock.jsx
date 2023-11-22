@@ -51,7 +51,7 @@ const products = [
   },
   {
     id: 6,
-    name: "Adidas Barricade Clay Arctic Night/White Men's Shoes",
+    name: "Adidas Barricade Clay Arctic Men's Shoes",
     price: 99,
     category: "clothing",
     img: "https://img.tennis-warehouse.com/watermark/rs.php?path=AMBCANW-1.jpg&nw=540",
