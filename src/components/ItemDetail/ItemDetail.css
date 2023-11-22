@@ -20,3 +20,21 @@
   display: flex;
   flex-direction: column;
 }
+.Option {
+  color: white;
+  background-color: #244ced;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  border: 1px solid #244ced;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.Option:hover {
+  border: 1px solid white;
+  scale: 1.05;
+
+}

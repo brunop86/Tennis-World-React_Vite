@@ -18,9 +18,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <>
-      <div className="input-group" style={{ maxWidth: "120px" }}>
+      <div className="input-group" style={{ maxWidth: "130px" }}>
         <button className="btn btn-secondary" type="button" onClick={decrement}>
-          -
+          <i className="bi bi-dash"></i>
         </button>
         <input
           type="text"
@@ -29,7 +29,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           disabled
         />
         <button className="btn btn-secondary" type="button" onClick={increment}>
-          +
+          <i className="bi bi-plus"></i>
         </button>
       </div>
       <div>
@@ -38,6 +38,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           onClick={() => onAdd(quantity)}
           disabled={!stock}
         >
+          <i className="bi bi-cart-plus me-2"></i>
           Add to Cart
         </button>
       </div>
