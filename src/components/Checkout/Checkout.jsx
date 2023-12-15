@@ -39,7 +39,7 @@ const Checkout = ({ loader }) => {
       .then(({ id }) => {
         setMessage({
           type: "success",
-          content: `Your order was uploaded successfully (order id: ${id}).`,
+          content: `Your order was uploaded successfully (Order id: ${id}).`,
         });
         cartContext.clear();
       })
@@ -70,7 +70,7 @@ const Checkout = ({ loader }) => {
           <div className="row">
             <div className="col-md-4 order-md-2 mb-4">
               <h4 className="d-flex justify-content-between align-items-center mb-3">
-                <span className="text-white">Your cart</span>
+                <span className="text-white">Your Cart</span>
                 <span className="badge badge-secondary badge-pill"></span>
               </h4>
               <ul className="list-group mb-3">
@@ -78,16 +78,16 @@ const Checkout = ({ loader }) => {
                   <li
                     key={item.id}
                     className={`list-group-item d-flex justify-content-between lh-condensed ${
-                      item.id == 777 && "bg-light"
+                      item.id == 1234 && "bg-light"
                     }`}
                   >
                     <div>
                       <h6
-                        className={`my-0 ${item.id == 777 && "text-success"}`}
+                        className={`my-0 ${item.id == 1234 && "text-success"}`}
                       >
                         <span
                           className={`badge bg-primary me-2 ${
-                            item.id == 777 && "d-none"
+                            item.id == 1234 && "d-none"
                           }`}
                         >
                           {item.quantity}
@@ -96,7 +96,7 @@ const Checkout = ({ loader }) => {
                       </h6>
                       <small
                         className={`${
-                          item.id == 777 ? "text-success" : "text-muted"
+                          item.id == 1234 ? "text-success" : "text-muted"
                         }`}
                       >
                         {item.description}
@@ -104,10 +104,10 @@ const Checkout = ({ loader }) => {
                     </div>
                     <span
                       className={`${
-                        item.id == 777 ? "text-success" : "text-muted"
+                        item.id == 1234 ? "text-success" : "text-muted"
                       }`}
                     >
-                      {item.id == 777 && "-"} ${item.price}
+                      {item.id == 1234 && "-"} ${item.price}
                     </span>
                   </li>
                 ))}
@@ -119,7 +119,7 @@ const Checkout = ({ loader }) => {
             </div>
 
             <div className="col-md-8 order-md-1">
-              <h4 className="mb-3">Billing address</h4>
+              <h4 className="mb-3">Billing Address</h4>
               <form className="needs-validation" onSubmit={sendOrder}>
                 <div className="row">
                   <div className="col-md-6 mb-3">
@@ -230,7 +230,7 @@ const Checkout = ({ loader }) => {
                   type="submit"
                 >
                   <i
-                    className="bi bi-bag-heart-fill"
+                    className="bi bi-bag-fill"
                     style={{ marginRight: "4px" }}
                   ></i>{" "}
                   Purchase

@@ -8,20 +8,18 @@ const CartItem = ({ id, name, price, category, stock }) => {
   return (
     <li
       className={`list-group-item d-flex justify-content-between align-items-start ${
-        id == 777 && "text-success bg-light"
+        id == 1234 && "text-success bg-light"
       }`}
     >
       <div className="ms-2 me-auto">
-        <div className="fw-bold">
-          {name.split(" ").slice(0, 3).join(" ")}
-        </div>
+        <div className="fw-bold">{name.split(" ").slice(0, 3).join(" ")}</div>
         <small>
-          {item.id == 777 && "-"} ${price}
+          {item.id == 1234 && "-"} ${price}
         </small>
       </div>
       <span
         className={`badge bg-secondary pill py-3 px-4 ${
-          id == 777 && "d-none"
+          id == 1234 && "d-none"
         }`}
       >
         {item.quantity}

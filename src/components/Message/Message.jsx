@@ -7,7 +7,8 @@ const Message = ({ content, type }) => {
       <h4 className="alert-heading">
         {type === "success" && (
           <span>
-            <i className="bi bi-check-circle-fill"></i> Well done!
+            <i className="bi bi-check-circle-fill"></i> Congratulations!
+            Purchase Successful
           </span>
         )}
         {type === "warning" && (

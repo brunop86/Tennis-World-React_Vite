@@ -16,8 +16,8 @@ const CartProvider = ({ children }) => {
   const addItem = (item, quantity) => {
     const cartItem = isInCart(item);
 
-    if (item.id == 777) {
-      if (cartItem && cartItem.id == 777) {
+    if (item.id == 1234) {
+      if (cartItem && cartItem.id == 1234) {
         return;
       }
 
@@ -36,7 +36,7 @@ const CartProvider = ({ children }) => {
   const removeItem = (item) => {
     const cartItem = isInCart(item);
 
-    if (item.id == 777) {
+    if (item.id == 1234) {
       setTotal((total) => total + item.price);
       setCart(cart.filter((product) => product.id !== item.id));
     } else {
