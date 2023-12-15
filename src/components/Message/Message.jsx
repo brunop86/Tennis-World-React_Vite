@@ -25,8 +25,7 @@ const Message = ({ content, type }) => {
       <p>{content}</p>
       <hr />
       <p className="mb-0">
-        If you need you can continue shopping from <Link to="/">this link</Link>
-        .
+        If you need keep buying <Link to="/">click here</Link>.
       </p>
     </div>
   );
