@@ -15,17 +15,15 @@ const CartProvider = ({ children }) => {
 
   const addItem = (item, quantity) => {
     const cartItem = isInCart(item);
-    // El id 777 está reservado para las promociones
+
     if (item.id == 777) {
-      // Si es un item promo y ya se encuentra aplicada, sale del método
       if (cartItem && cartItem.id == 777) {
         return;
       }
-      // Si no, aplica la promo
+
       setCart([...cart, { ...item, quantity }]);
       setTotal((total) => total - item.price);
     } else {
-      // Si no es promo, agrega el item al carrito
       cartItem
         ? (cartItem.quantity += quantity)
         : setCart([...cart, { ...item, quantity }]);
@@ -37,13 +35,11 @@ const CartProvider = ({ children }) => {
 
   const removeItem = (item) => {
     const cartItem = isInCart(item);
-    // El id 777 está reservado para las promociones
+
     if (item.id == 777) {
-      // Si remueve la promo, corrige el total y la saca del carrito
       setTotal((total) => total + item.price);
       setCart(cart.filter((product) => product.id !== item.id));
     } else {
-      // Si no es promo, remueve el item del carrito y actualiza el contador
       if (cartItem && cartItem.quantity <= 1) {
         setCart(cart.filter((product) => product.id !== item.id));
       } else {

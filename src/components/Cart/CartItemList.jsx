@@ -30,7 +30,8 @@ const CartItemList = () => {
                 window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
               }}
             >
-              <i className="bi bi-cart-check-fill me-1"></i> Checkout
+              <i className="bi bi-cart-check-fill me-1"></i> View Cart &
+              Checkout
             </button>
           </Link>
         </div>

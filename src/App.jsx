@@ -32,10 +32,6 @@ function App() {
             element={<ItemDetailContainer loader={setLoading} />}
           />
           <Route path="checkout" element={<Checkout loader={setLoading} />} />
-          <Route
-            path="search"
-            element={<ItemListContainer loader={setLoading} />}
-          />
           <Route path="*" element={<h2>404 NOT FOUND</h2>} />
         </Routes>
       </CartProvider>
