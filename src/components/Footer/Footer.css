@@ -4,8 +4,9 @@
   align-items: center;
   width: 100vw;
   gap: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-top: 2rem;
 }
 .container-social-media .img-logo {
   height: 1.8rem;
@@ -19,6 +20,7 @@
   padding-bottom: 1rem;
 }
 .container-footer h5 {
+  font-family: "Montserrat", sans-serif;
   font-size: 0.8rem;
-  padding: 0.5rem;
+  
 }

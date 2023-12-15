@@ -1,19 +1,17 @@
 .CardItem {
   text-align: center;
 }
-
 .ItemImg {
-  max-height: 320px;
+  max-height: 400px;
 }
-
 .ItemHeader,
 .Info {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: normal;
   color: white;
+  margin: 1rem;
 }
-
 .ItemFooter {
   align-items: center;
   justify-content: center;
@@ -32,9 +30,7 @@
   transition: all 0.2s;
   cursor: pointer;
 }
-
 .Option:hover {
   border: 1px solid white;
   scale: 1.05;
-
 }

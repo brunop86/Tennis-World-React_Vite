@@ -1,43 +1,36 @@
 import { useEffect, useState } from "react";
-import { getProducts, getProductsByCategory } from "../../asyncMock";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../../firebase/client";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = ({ loader }) => {
   const { categoryId } = useParams();
-  const [products, setProducts] = useState([]);
+  const [list, setList] = useState([]);
+
+  const getItemsFS = async () => {
+    const productsRef = categoryId
+      ? query(collection(db, "products"), where("category", "==", categoryId))
+      : collection(db, "products");
+    const result = await getDocs(productsRef);
+    const items = result.docs.map((item) => ({
+      id: item.id,
+      ...item.data(),
+    }));
+    setList(items);
+    loader(false);
+  };
 
   useEffect(() => {
-    mostrarLoader();
-    const asyncFunc = categoryId ? getProductsByCategory : getProducts;
-
-    asyncFunc(categoryId)
-      .then((response) => {
-        setProducts(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    loader(true);
+    getItemsFS();
   }, [categoryId]);
 
   return (
     <div>
-      <h1>{greeting}</h1>
-      <ItemList products={products} />
+      <ItemList list={list} />
     </div>
   );
 };
-
-function mostrarLoader() {
-  Swal.fire({
-    title: "Loading",
-    html: "Please wait...",
-    timer: 1000,
-    timerProgressBar: true,
-    didOpen: () => {
-      Swal.showLoading();
-    },
-  });
-}
 
 export default ItemListContainer;

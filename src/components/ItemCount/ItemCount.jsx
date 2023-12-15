@@ -1,45 +1,35 @@
-import { useState } from "react";
-
-// eslint-disable-next-line react/prop-types
-const ItemCount = ({ stock, initial, onAdd }) => {
-  const [quantity, setQuantity] = useState(initial);
-
-  const increment = () => {
-    if (quantity < stock) {
-      setQuantity(quantity + 1);
+const ItemCount = ({ count, setCount, stock }) => {
+  const onAdd = () => {
+    if (count < stock) {
+      setCount(count + 1);
     }
   };
 
-  const decrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
+  const onRemove = () => {
+    if (count > 1) {
+      setCount(count - 1);
     }
   };
 
   return (
     <>
       <div className="input-group" style={{ maxWidth: "130px" }}>
-        <button className="btn btn-secondary" type="button" onClick={decrement}>
+        <button
+          id="restar"
+          className="btn btn-secondary"
+          type="button"
+          onClick={onRemove}
+        >
           <i className="bi bi-dash"></i>
         </button>
         <input
           type="text"
           className="form-control text-center"
-          value={quantity}
+          value={count}
           disabled
         />
-        <button className="btn btn-secondary" type="button" onClick={increment}>
+        <button className="btn btn-secondary" type="button" onClick={onAdd}>
           <i className="bi bi-plus"></i>
-        </button>
-      </div>
-      <div>
-        <button
-          className="btn btn-primary mt-3"
-          onClick={() => onAdd(quantity)}
-          disabled={!stock}
-        >
-          <i className="bi bi-cart-plus me-2"></i>
-          Add to Cart
         </button>
       </div>
     </>

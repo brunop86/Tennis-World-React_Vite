@@ -1,40 +1,30 @@
 import { useEffect, useState } from "react";
-import { getProductById } from "../../asyncMock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../../firebase/client";
 
-const ItemDetailContainer = () => {
-  const [product, setProduct] = useState(null);
+const ItemDetailContainer = ({ loader }) => {
+  const [item, setItem] = useState([]);
   const { itemId } = useParams();
 
+  const getItemFS = async () => {
+    const query = doc(db, "products", itemId);
+    const result = await getDoc(query);
+    setItem({ id: result.id, ...result.data() });
+    loader(false);
+  };
+
   useEffect(() => {
-    mostrarLoader();
-    getProductById(itemId)
-      .then((response) => {
-        setProduct(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    loader(true);
+    getItemFS();
   }, [itemId]);
 
   return (
     <div className="ItemDetailContainer">
-      <ItemDetail {...product} />
+      <ItemDetail key={item.id} {...item} />
     </div>
   );
 };
-
-function mostrarLoader() {
-  Swal.fire({
-    title: "Loading",
-    html: "Please wait...",
-    timer: 1000,
-    timerProgressBar: true,
-    didOpen: () => {
-      Swal.showLoading();
-    },
-  });
-}
 
 export default ItemDetailContainer;

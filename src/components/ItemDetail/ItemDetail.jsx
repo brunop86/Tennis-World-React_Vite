@@ -1,28 +1,42 @@
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
+import { useState, useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
-const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
+const ItemDetail = ({ id, name, image, price, description, stock }) => {
+  const [quantity, setQuantity] = useState(1);
+  const cartContext = useContext(CartContext);
+  const item = { id, name, price, description };
+
   return (
-    <article className="CardItem">
-      <header className="Header">
-        <h2 className="ItemHeader">{name}</h2>
-      </header>
-      <picture>
-        <img src={img} alt={name} className="ItemImg" />
-      </picture>
-      <section>
-        <p className="Info">Category: {category}</p>
-        <p className="Info">Description: {description}</p>
-        <p className="Info">Price ${price}</p>
-      </section>
-      <footer className="ItemFooter">
-        <ItemCount
-          initial={1}
-          stock={stock}
-          onAdd={(quantity) => console.log("Items added ", quantity)}
-        />
-      </footer>
-    </article>
+    <>
+      <div className="card">
+        <div className="row g-0 py-4">
+          <div className="col-md-5 px-3">
+            <div className="d-flex flex-column justify-content-center">
+              <img src={image} className="card-img-top" alt="product" />
+            </div>
+          </div>
+          <div className="col-md-7">
+            <h2 className="pb-2">{name}</h2>
+            <p className="text-secondary pb-3">{description}</p>
+            <h2 className="pb-2">${price}</h2>
+            <div className="text-secondary">
+              <small>Quantity:</small>
+              <ItemCount count={quantity} setCount={setQuantity} stock={10} />
+            </div>
+            <div className="input">
+              <a
+                onClick={() => cartContext.addItem(item, quantity)}
+                className="btn btn-primary mt-2"
+              >
+                <i className="bi bi-cart-plus me-2"></i>Add to cart
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
