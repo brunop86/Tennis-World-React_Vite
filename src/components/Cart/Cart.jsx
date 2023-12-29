@@ -9,23 +9,21 @@ const Cart = () => {
   if (cartContext.counter > 0) {
     return (
       <>
-        <ul id="items" className="list-group">
+        <ul id="items" className="list-group my-4 mx-5">
           {cartContext.cart.map((item) => (
             <CartItem key={item.id} {...item} />
           ))}
         </ul>
         <div id="total">
-          <hr className="my-4" />
-          <div className="d-flex justify-content-between mb-4">
+          <hr className="my-4 mx-5" />
+          <div className="d-flex justify-content-between mb-4 mx-5">
             <h5 className="text-secondary">Total</h5>
             <h5> ${cartContext.total}</h5>
           </div>
           <Link to="/checkout">
             <button
               id="comprar"
-              className="btn btn-primary w-100 py-2"
-              data-bs-dismiss="offcanvas"
-              data-bs-target="#carrito"
+              className="btn btn-primary w-25 py-2 mx-5"
               onClick={() => {
                 window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
               }}
@@ -40,7 +38,7 @@ const Cart = () => {
   } else {
     return (
       <ul id="items" className="list-group">
-        <p >There are no items in the cart.</p>
+        <p className="text-center fs-3">There are no items in the cart.</p>
       </ul>
     );
   }
