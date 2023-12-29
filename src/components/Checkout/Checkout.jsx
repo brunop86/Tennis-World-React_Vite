@@ -11,13 +11,7 @@ const Checkout = ({ loader }) => {
     content: "",
   });
 
-  const [data, setData] = useState({
-    first_name: "Bruno",
-    last_name: "Pache",
-    country: "Argentina",
-    email: "bruno@pache.com",
-    state: "Tucuman",
-  });
+  const [data, setData] = useState({});
 
   const handleChange = (event) => {
     setData({
@@ -77,38 +71,18 @@ const Checkout = ({ loader }) => {
                 {cartContext.cart.map((item) => (
                   <li
                     key={item.id}
-                    className={`list-group-item d-flex justify-content-between lh-condensed ${
-                      item.id == 1234 && "bg-light"
-                    }`}
+                    className={`list-group-item d-flex justify-content-between lh-condensed`}
                   >
                     <div>
-                      <h6
-                        className={`my-0 ${item.id == 1234 && "text-success"}`}
-                      >
-                        <span
-                          className={`badge bg-primary me-2 ${
-                            item.id == 1234 && "d-none"
-                          }`}
-                        >
+                      <h6 className={`my-0`}>
+                        <span className={`badge bg-primary me-2`}>
                           {item.quantity}
                         </span>
                         {item.name}
                       </h6>
-                      <small
-                        className={`${
-                          item.id == 1234 ? "text-success" : "text-muted"
-                        }`}
-                      >
-                        {item.description}
-                      </small>
+                      <small>{item.description}</small>
                     </div>
-                    <span
-                      className={`${
-                        item.id == 1234 ? "text-success" : "text-muted"
-                      }`}
-                    >
-                      {item.id == 1234 && "-"} ${item.price}
-                    </span>
+                    <span>${item.price}</span>
                   </li>
                 ))}
                 <li className="list-group-item d-flex justify-content-between">
@@ -129,14 +103,8 @@ const Checkout = ({ loader }) => {
                       type="text"
                       className="form-control"
                       id="firstName"
-                      placeholder=""
-                      required
-                      defaultValue={"Bruno"}
                       onChange={handleChange}
                     />
-                    <div className="invalid-feedback">
-                      Valid first name is required.
-                    </div>
                   </div>
                   <div className="col-md-6 mb-3">
                     <label htmlFor="lastName">Last name</label>
@@ -145,17 +113,10 @@ const Checkout = ({ loader }) => {
                       type="text"
                       className="form-control"
                       id="lastName"
-                      placeholder=""
-                      required
-                      defaultValue={"Pache"}
                       onChange={handleChange}
                     />
-                    <div className="invalid-feedback">
-                      Valid last name is required.
-                    </div>
                   </div>
                 </div>
-
                 <div className="mb-3">
                   <label htmlFor="email">Email</label>
                   <input
@@ -164,15 +125,9 @@ const Checkout = ({ loader }) => {
                     className="form-control"
                     id="email"
                     placeholder="you@example.com"
-                    defaultValue={"bruno@pache.com"}
                     onChange={handleChange}
-                    required
                   />
-                  <div className="invalid-feedback">
-                    Please enter a valid email address for shipping updates.
-                  </div>
                 </div>
-
                 <div className="row">
                   <div className="col-md-5 mb-3">
                     <label htmlFor="country">Country</label>
@@ -180,16 +135,12 @@ const Checkout = ({ loader }) => {
                       name="country"
                       className="form-select d-block w-100"
                       id="country"
-                      required
-                      defaultValue={"Argentina"}
                       onChange={handleChange}
                     >
                       <option>Choose...</option>
                       <option>Argentina</option>
+                      <option>United States</option>
                     </select>
-                    <div className="invalid-feedback">
-                      Please select a valid country.
-                    </div>
                   </div>
                   <div className="col-md-4 mb-3">
                     <label htmlFor="state">State</label>
@@ -197,16 +148,12 @@ const Checkout = ({ loader }) => {
                       name="state"
                       className="form-select d-block w-100"
                       id="state"
-                      required
-                      defaultValue={"Tucuman"}
                       onChange={handleChange}
                     >
                       <option>Choose...</option>
                       <option>Tucuman</option>
+                      <option>New York</option>
                     </select>
-                    <div className="invalid-feedback">
-                      Please provide a valid state.
-                    </div>
                   </div>
                   <div className="col-md-3 mb-3">
                     <label htmlFor="zip">Zip</label>
@@ -215,15 +162,10 @@ const Checkout = ({ loader }) => {
                       type="text"
                       className="form-control"
                       id="zip"
-                      placeholder=""
-                      required
-                      defaultValue={"4000"}
                       onChange={handleChange}
                     />
-                    <div className="invalid-feedback">Zip code required.</div>
                   </div>
                 </div>
-
                 <hr className="mb-4" />
                 <button
                   className="btn btn-primary btn-lg btn-block"
