@@ -1,4 +1,4 @@
-import CartWidget from "../Cart/CartWidget";
+import CartWidget from "../CartWidget/CartWidget";
 import logo from "./assets/logo.png";
 import { Link, NavLink } from "react-router-dom";
 
@@ -24,14 +24,10 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-      <button
-        className="btn btn-primary px-4 position-relative"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#carrito"
-        aria-controls="carrito"
-      >
-        <i className="bi bi-cart-fill"></i>
+      <button className="btn btn-primary px-4 position-relative" type="button">
+        <Link className="text-white" to={"/cart"}>
+          Cart <i className="bi bi-cart-fill"></i>
+        </Link>
         <CartWidget />
       </button>
     </nav>

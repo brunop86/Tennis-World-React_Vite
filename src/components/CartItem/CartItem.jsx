@@ -14,7 +14,7 @@ const CartItem = ({ id, name, price, category, stock }) => {
       <div className="ms-2 me-auto">
         <div className="fw-bold">{name.split(" ").slice(0, 3).join(" ")}</div>
         <small>
-          {item.id == 1234 && "-"} ${price}
+          ${price}
         </small>
       </div>
       <span

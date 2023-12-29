@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import CartItem from "./CartItem";
+import CartItem from "../CartItem/CartItem";
 import { CartContext } from "../../context/CartContext";
 
-const CartItemList = () => {
+const Cart = () => {
   const cartContext = useContext(CartContext);
 
   if (cartContext.counter > 0) {
@@ -40,10 +40,10 @@ const CartItemList = () => {
   } else {
     return (
       <ul id="items" className="list-group">
-        <p>There are no items in the cart.</p>
+        <p >There are no items in the cart.</p>
       </ul>
     );
   }
 };
 
-export default CartItemList;
+export default Cart;
