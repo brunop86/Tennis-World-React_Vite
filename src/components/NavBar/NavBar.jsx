@@ -24,10 +24,14 @@ const NavBar = () => {
           </li>
         </ul>
       </div>
-      <button className="btn btn-primary px-4 position-relative" type="button">
-        <NavLink className="text-white" to={"/cart"}>
-          Cart <i className="bi bi-cart-fill"></i>
-        </NavLink>
+      <button
+        className="btn btn-primary px-4 position-relative"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#carrito"
+        aria-controls="carrito"
+      >
+        <i className="bi bi-cart-fill"></i>
         <CartWidget />
       </button>
     </nav>

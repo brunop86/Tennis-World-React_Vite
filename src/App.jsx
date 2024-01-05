@@ -9,7 +9,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import Footer from "./components/Footer/Footer";
 import Checkout from "./components/Checkout/Checkout.jsx";
 import Loader from "./components/Loader/Loader.jsx";
-import Cart from "./components/Cart/Cart.jsx";
+import CartSideBar from "./components/CartSideBar/CartSideBar.jsx";
 // Contexts
 import CartProvider from "./context/CartProvider.jsx";
 
@@ -20,6 +20,7 @@ function App() {
       {loading && <Loader />}
       <CartProvider>
         <NavBar />
+        <CartSideBar />
         <Routes>
           <Route path="/" element={<ItemListContainer loader={setLoading} />} />
           <Route
@@ -31,7 +32,6 @@ function App() {
             element={<ItemDetailContainer loader={setLoading} />}
           />
           <Route path="checkout" element={<Checkout loader={setLoading} />} />
-          <Route path="cart" element={<Cart loader={setLoading} />} />
           <Route path="*" element={<h2>404 NOT FOUND</h2>} />
         </Routes>
       </CartProvider>
